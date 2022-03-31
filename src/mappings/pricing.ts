@@ -5,6 +5,7 @@ import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD } from './helpers'
 
 let WPLS_ADDRESS = '0x8a810ea8B121d08342E9e7696f4a9915cBE494B7'
 let USDC_ADDRESS = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+let USDT = '0xdAC17F958D2ee523a2206206994597C13D831ec7'
 
 let WHITELIST: string[] = [
   '0x8a810ea8B121d08342E9e7696f4a9915cBE494B7', //WPLS
@@ -22,7 +23,7 @@ export function getEthPriceInUSD(): BigDecimal {
 
   if (usdcPair !== null) {
     log.debug('usdcPair {0}, {1}', [usdcPair.token0Price.toString(), usdcPair.token1Price.toString()])
-    let isUsdcFirst = usdcPair.token0 == USDC
+    let isUsdcFirst = usdcPair.token0 == USDT
     return isUsdcFirst ? usdcPair.token0Price : usdcPair.token1Price
   } else {
     log.warning('No usdcPair', [])
